@@ -43,6 +43,9 @@
   background-color: var(--accent-color);
   border-radius: 2px;
   bottom: -1px;
+  transition-property: babackground-color;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .address {
@@ -66,8 +69,8 @@
   fill: #afb1b8;
 
   transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .address-items-link {
@@ -77,7 +80,7 @@
   letter-spacing: 0.02em;
 
   transition-property: color;
-  transition-duration: 250ms;
+  transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
 
@@ -95,7 +98,7 @@
   color: var(--title-text-color);
 
   transition-property: color;
-  transition-duration: 250ms;
+  transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
 
@@ -106,8 +109,6 @@
 
 .navigation-items:hover::after {
   opacity: 0;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
 }
 
 .address-icon:hover,
@@ -296,15 +297,15 @@
   fill: #afb1b8;
   border-radius: 50%;
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition-property: fill, background;
+  transition-duration: var(--transition-duration), var(--transition-duration);
+  transition-timing-function: var(--timing-function), var(--timing-function);
 }
 
 .team-link:focus,
 .team-link:hover {
   fill: white;
-  background-color: var(--accent-color);
+  background: var(--accent-color);
 }
 
 .icon-social {
@@ -338,18 +339,18 @@
   border-radius: 4px;
   border: 1px solid #afb1b8;
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: var(--t);
+  transition-property: border;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .icon-partner {
   box-sizing: content-box;
   fill: #afb1b8;
 
-  transition-property: background-color;
-  transition-duration: 1250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .partner-item {
@@ -390,10 +391,17 @@ a:focus .icon-partner {
   padding: 6px 22px;
 }
 
-.filtr-items {
-  margin-right: 8px;
+.filtr-items:focus,
+.filtr-items:hover {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition-property: box-shadow;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.filtr-items {
+  margin-right: 8px;
   border-radius: 4px;
 }
 
@@ -433,19 +441,19 @@ a:focus .icon-partner {
 
 .box-overlay {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   padding: 63px 24px;
 
   width: 100%;
   height: 100%;
   background: rgba(33, 150, 243, 0.9);
-  transform: translateY(+100%);
-  transition: transform 250ms var(--timing-function);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.box-item-link:hover .box-overlay {
-  transform: translateY(0);
+.box-item-link:hover .box-overlay,
+.box-item-link:focus .box-overlay {
+  transform: translateY(-100%);
 }
 
 .borderwork {
@@ -527,6 +535,10 @@ footer {
 .link-social.footer {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+
+  transition-property: background;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .email,
@@ -539,7 +551,7 @@ footer {
   font-weight: 400;
 
   transition-property: color;
-  transition-duration: 250ms;
+  transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
 
@@ -555,13 +567,14 @@ footer {
   display: flex;
 }
 
-.mail-box div {
+.mail-box input {
   margin-right: 12px;
   padding: 15px 0 14px 15px;
 
   border: 1px solid gray;
   width: 358px;
   height: 50px;
+  background-color: #2f303a;
 }
 .join {
   display: block;
@@ -594,26 +607,27 @@ footer {
 
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 
-  margin-right: auto;
-  margin-left: auto;
-
-  width: 1600px;
-  height: 1024px;
   background-color: rgba(0, 0, 0, 0.2);
 }
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 40px;
 
-  min-width: 528px;
-  min-height: 581px;
+  width: 100%;
+  max-width: 528px;
+  min-height: 582px;
 
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -624,4 +638,104 @@ footer {
 .close {
   width: 11px;
   height: 11px;
+}
+
+textarea {
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.modal-heder {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  margin-bottom: 12px;
+  color: var(--title-text-color);
+}
+
+.label-heder {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.form {
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.modal-items {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-bottom: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.16;
+
+  letter-spacing: 0.01em;
+}
+
+.options {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.modal-items.last {
+  padding-bottom: 0;
+}
+.modal-items > label {
+  margin-bottom: 4px;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 0;
+}
+
+.polisy {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71px;
+
+  letter-spacing: 0.03em;
+}
+
+.js-speaker-form {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal-wrap {
+  position: relative;
+}
+
+.svg-modal {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+
+  transform: translate(-50%, -50%);
+
+  width: 18px;
+  height: 18px;
+}
+.wrap-polisy {
+  text-align: center;
 }

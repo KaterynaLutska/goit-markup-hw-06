@@ -349,13 +349,7 @@ template {
 [hidden] {
   display: none;
 }
-
-/* box-sizing додає border до загальної ширини */
-
-html {
-  box-sizing: border-box;
-}
-
+/*  */
 *,
 *::before,
 *::after {

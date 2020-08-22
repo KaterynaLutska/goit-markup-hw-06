@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Web Studio</title>
   </head>
+
   <body>
     <header>
       <div class="container flexbox">
@@ -460,19 +461,21 @@
           </ul>
         </div>
         <div class="join-us">
-          <b class="join">Подпишитесь на рассылку</b>
-          <div class="mail-box">
-            <div>E-mail</div>
-            <a href="" class="button btn-join"
-              >Подписаться
-              <svg class="send">
-                <use href="./images/sprite.svg#icon-send"></use>
-              </svg>
-              <svg class="send-icons">
-                <use href="./images/sprite.svg#icon-rocket"></use>
-              </svg>
-            </a>
-          </div>
+          <form>
+            <b class="join">Подпишитесь на рассылку</b>
+            <div class="mail-box">
+              <input type="email" placeholder="E-mail" class="mail-box-item"></input>
+              <a href="" class="button btn-join"
+                >Подписаться
+                <svg class="send">
+                  <use href="./images/sprite.svg#icon-send"></use>
+                </svg>
+                <svg class="send-icons">
+                  <use href="./images/sprite.svg#icon-rocket"></use>
+                </svg>
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </footer>
@@ -480,6 +483,52 @@
     <!-- Modal window -->
     <div data-modal class="backdrop is-hidden">
       <div class="modal">
+        <form class="js-speaker-form" autocomplete="off" method="post">
+          <h3 class="modal-heder">Оставьте свои данные, мы вам перезвоним</h3>
+          <div class="modal-items"> 
+            <label class="label-heder" for="name">Имя</label>
+            <div class="modal-wrap">
+              <input class="form" type="text" name="name" id="name" />
+              <svg class="svg-modal">
+                <use href="./images/sprite.svg#icon-icon-n"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal-items">
+            <label class="label-heder for="telephone">Телефон</label>
+            <div class="modal-wrap">
+              <input class="form" type="tel" name="telephone" id="telephone" />
+                <svg class="svg-modal">
+                <use href="./images/sprite.svg#icon-phone-black"></use>
+                </svg>
+              </div>
+            </div>
+          <div class="modal-items">
+            <label  class="label-heder for="email">Почта</label>
+            <div class="modal-wrap">
+              <input class="form" type="mail" name="email" id="email" />
+                <svg class="svg-modal">
+                <use href="./images/sprite.svg#icon-e-mail"></use>
+                </svg>
+            </div>
+          </div>
+            <div class="modal-items last">
+            <label class="label-heder for="comments">Комментарий</label>
+            <div>
+              <textarea name="comments" id="comments"> </textarea>
+            </div>
+          </div>
+            <div class="wrap-polisy">
+            <div class="options"> 
+          <input type="checkbox" name="" id="" />
+          <span class="polisy"
+            >Соглашаюсь с рассылкой и принимаю
+            <span>Условия договора</span>
+          </span>
+          </div>
+          <button type="submit" class="button submit-btn">Отправить</button>
+          </div>
+        </form>
         <button data-modal-close class="button-modal">
           <svg class="close">
             <use href="./images/sprite.svg#icon-close"></use>
@@ -488,5 +537,20 @@
       </div>
     </div>
     <script src="./js/modal.js"></script>
+    <script>
+      (() => {
+        document
+          .querySelector(".js-speaker-form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`)
+            );
+
+            e.currentTarget.reset();
+          });
+      })();
+    </script>
   </body>
 </html>
