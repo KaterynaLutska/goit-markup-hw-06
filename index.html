@@ -471,15 +471,12 @@
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 required
               />
-              <a href="" class="button btn-join"
-                >Подписаться
+              <button class="button btn-join">
+                Подписаться
                 <svg class="send">
                   <use href="./images/sprite.svg#icon-send"></use>
                 </svg>
-                <svg class="send-icons">
-                  <use href="./images/sprite.svg#icon-rocket"></use>
-                </svg>
-              </a>
+              </button>
             </div>
           </form>
         </div>
@@ -549,7 +546,8 @@
                 name="comments"
                 id="comments"
                 placeholder="Введите текст"
-              ></textarea>
+              >
+              </textarea>
             </div>
           </div>
           <div class="wrap-policy">
@@ -557,9 +555,12 @@
               <label class="check">
                 <input class="check-input" type="checkbox" name="" />
                 <span class="check-icon"></span>
-                <span class="policy">
-                  Соглашаюсь с рассылкой и принимаю
-                  <a class="policy-link" href="./">Условия договора</a>
+                <span class="policy"
+                  >Соглашаюсь с рассылкой и принимаю<a
+                    class="policy-link"
+                    href="./"
+                    >Условия договора</a
+                  >
                 </span>
               </label>
             </div>

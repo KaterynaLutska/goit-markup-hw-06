@@ -120,68 +120,40 @@ button {
 }
 
 .button:hover,
-.button:focus,
-.button.btn-join:hover,
-.button.btn-join:focus,
-.send:hover,
-.send:focus {
+.button:focus {
   cursor: pointer;
   color: var(--accent-color);
   background-color: var(--primary-bg-color);
 }
 
 .send {
-  display: inline-flex;
   margin-left: 10px;
   fill: white;
   width: 24px;
+  height: 24px;
 
-  transition-property: fill;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
 
 .btn-join {
-  position: relative;
-  overflow: hidden;
-
   display: flex;
+  align-items: center;
   padding: 10px 28px 10px 29px;
   height: 50px;
   width: 200px;
 }
 
-.send-icons {
-  position: absolute;
-  top: 10px;
-  left: 150px;
-  height: 35px;
-  width: 24px;
-  fill: white;
-
-  transform: translateY(+40px);
-}
-
-.btn-join:hover .send-icons,
-.btn-join:focus .send-icons,
-.btn-join:hover .send,
-.btn-join:focus .send {
-  transform: translateY(calc(+50% - 20px));
+.button:hover .send,
+.button:focus .send {
   fill: var(--accent-color);
 
-  transition-property: fill;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--timing-function);
 }
 
-.btn-join:hover .send {
-  transform: translateY(-40px);
-}
-
 .filtr:hover,
-.filtr:focus,
-.btn-join:hover,
-.btn-join:focus {
+.filtr:focus {
   color: #ffffff;
   background-color: var(--accent-color);
   cursor: pointer;

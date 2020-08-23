@@ -655,6 +655,7 @@ textarea::placeholder {
 
   color: rgba(117, 117, 117, 0.5);
 }
+
 textarea {
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -662,7 +663,6 @@ textarea {
 }
 
 .modal-heder {
-  font-family: Roboto;
   font-weight: bold;
   font-size: 20px;
   line-height: 1.15;
@@ -704,7 +704,7 @@ textarea {
   position: relative;
   top: 0;
   left: 0;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 
   font-style: normal;
   font-weight: normal;
@@ -720,7 +720,7 @@ textarea {
 }
 
 .modal-items.last {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 .modal-items > label {
   margin-bottom: 4px;
@@ -744,10 +744,11 @@ input {
 }
 
 textarea {
+  display: inline-block;
   width: 100%;
   height: 120px;
-  padding: 0;
-  outline: none;
+
+  /* outline: none; */
 }
 
 textarea:focus {
