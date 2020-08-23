@@ -690,10 +690,14 @@ textarea {
 
 .form:focus {
   border: 1px solid var(--accent-color);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .form:focus ~ .svg-modal {
   fill: var(--accent-color);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .modal-items {
@@ -748,6 +752,8 @@ textarea {
 
 textarea:focus {
   border: 1px solid var(--accent-color);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .policy {
