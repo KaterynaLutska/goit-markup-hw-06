@@ -464,7 +464,13 @@
           <form>
             <b class="join">Подпишитесь на рассылку</b>
             <div class="mail-box">
-              <input type="email" placeholder="E-mail" class="mail-box-item"></input>
+              <input
+                class="mail-box-item"
+                type="email"
+                placeholder="E-mail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+              />
               <a href="" class="button btn-join"
                 >Подписаться
                 <svg class="send">
@@ -485,10 +491,18 @@
       <div class="modal">
         <form class="js-speaker-form" autocomplete="off" method="post">
           <h3 class="modal-heder">Оставьте свои данные, мы вам перезвоним</h3>
-          <div class="modal-items"> 
+          <div class="modal-items">
             <label class="label-heder" for="name">Имя</label>
             <div class="modal-wrap">
-              <input class="form" type="text" name="name" id="name" />
+              <input
+                class="form"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Иван Иванов"
+                pattern="^[А-Яа-яЁё\s]+$"
+                required
+              />
               <svg class="svg-modal">
                 <use href="./images/sprite.svg#icon-icon-n"></use>
               </svg>
@@ -497,37 +511,59 @@
           <div class="modal-items">
             <label class="label-heder" for="telephone">Телефон </label>
             <div class="modal-wrap">
-              <input class="form" type="tel" name="telephone" id="telephone" />
-                <svg class="svg-modal">
+              <input
+                class="form"
+                type="tel"
+                name="telephone"
+                id="telephone"
+                placeholder="0673043145"
+                pattern="[0-9]{10}"
+                required
+              />
+              <svg class="svg-modal">
                 <use href="./images/sprite.svg#icon-phone-black"></use>
-                </svg>
-              </div>
+              </svg>
             </div>
+          </div>
           <div class="modal-items">
             <label class="label-heder" for="email">Почта</label>
             <div class="modal-wrap">
-              <input class="form" type="mail" name="email" id="email" />
-                <svg class="svg-modal">
+              <input
+                class="form"
+                type="mail"
+                name="email"
+                id="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+              />
+              <svg class="svg-modal">
                 <use href="./images/sprite.svg#icon-e-mail"></use>
-                </svg>
+              </svg>
             </div>
           </div>
-            <div class="modal-items last">
+          <div class="modal-items last">
             <label class="label-heder" for="comments">Комментарий</label>
             <div>
-              <textarea class="textarea-comments" name="comments" id="comments" placeholder="Введите текст"> </textarea>
+              <textarea
+                class="textarea-comments"
+                name="comments"
+                id="comments"
+                placeholder="Введите текст"
+              ></textarea>
             </div>
           </div>
-            <div class="wrap-policy">
-            <div class="options"> 
-              <label class="check">  
-                <input class="check-input" type="checkbox" name=""/> 
+          <div class="wrap-policy">
+            <div class="options">
+              <label class="check">
+                <input class="check-input" type="checkbox" name="" />
                 <span class="check-icon"></span>
-                <span class="policy"> Соглашаюсь с рассылкой и принимаю <a class="policy-link" href="./">Условия договора</a>
+                <span class="policy">
+                  Соглашаюсь с рассылкой и принимаю
+                  <a class="policy-link" href="./">Условия договора</a>
                 </span>
-          </label>
-          </div>
-          <button type="submit" class="button submit-btn">Отправить</button>
+              </label>
+            </div>
+            <button type="submit" class="button submit-btn">Отправить</button>
           </div>
         </form>
         <button data-modal-close class="button-modal">
